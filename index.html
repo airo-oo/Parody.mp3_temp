@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Parody.mp3 — a gloriously unnecessary music parody generator." />
+    <title>Parody.mp3 — Ruin a Song</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+    <style>
+      .brand { display: inline-flex; align-items: center; letter-spacing: .3px; }
+      .brand i { font-size: 13px; letter-spacing: .5px; }
+      .parody-name { font: 700 25px/1 Caveat, cursive; letter-spacing: -1px; margin-right: 1px; transform: translateY(-1px); }
+      .brand-stack { display: flex; flex-direction: column; gap: 4px; }
+      .brand-stack .tagline { margin: 0 0 0 31px; }
+      @media (max-width: 760px) { .brand-stack .tagline { display: block !important; } }
+    </style>
+  </head>
+  <body>
+    <div class="page-glow glow-one"></div><div class="page-glow glow-two"></div>
+    <header class="site-header shell">
+      <div class="brand-stack"><a class="brand" href="#top" aria-label="Parody . mp3. home"><span class="brand-mark">P</span><span class="parody-name">Parody</span><i> . mp3.</i></a><p class="tagline">Give us a song. <em>We'll ruin it.</em></p></div>
+      <nav aria-label="Main navigation"><a class="active" href="#create">Create</a><a href="#how-it-works">How it works</a><a href="#about">About</a></nav>
+    </header>
+
+    <main id="top">
+      <section class="hero shell">
+        <h1>Turn your favorite songs into <span>questionable</span> life choices.</h1>
+        <p>Give us lyrics, choose a theme, and let AI turn musical masterpieces into completely unnecessary parodies.</p>
+        <a class="jump-link" href="#create">Start ruining things <b>↓</b></a>
+        <div class="waveform hero-wave" aria-hidden="true"></div>
+      </section>
+
+      <section class="shell create-layout" id="create">
+        <div class="generator-card panel">
+          <div class="card-heading"><div><p class="kicker">THE PARODY MACHINE <span class="live-dot"></span></p><h2>What's getting ruined today?</h2></div><span class="step-pill">STEP 01</span></div>
+          <form id="parody-form">
+            <label for="lyrics">Original lyrics <span class="required">*</span></label>
+            <div class="textarea-wrap"><textarea id="lyrics" maxlength="5000" required placeholder="Paste the lyrics you want to parody..."></textarea><span id="character-count">0 / 5000</span></div>
+            <button id="identify-song-button" class="recognition-button" type="button">⌕ <span>IDENTIFY SONG</span></button>
+            <label for="theme">What's the parody about? <span class="required">*</span></label>
+            <input id="theme" type="text" maxlength="200" required placeholder="Engineering exams, hostel life, sleep deprivation..." />
+            <div class="control-grid">
+              <div><label for="mood">Mood</label><select id="mood"><option>Funny</option><option>Chaotic</option><option>Dramatic</option><option>Sad</option><option>Sarcastic</option><option>Unhinged</option></select></div>
+              <div><label for="chaos">Chaos level <output id="chaos-value" for="chaos">87%</output></label><input id="chaos" type="range" min="0" max="100" value="87" /><p class="chaos-caption" id="chaos-caption">absolutely unnecessary</p></div>
+            </div>
+            <button class="ruin-button" type="submit"><span class="mic">♩</span><span class="button-text">RUIN THIS SONG</span><span class="button-arrow">↗</span></button>
+            <p class="form-note" id="service-status" aria-live="polite">Checking the parody server…</p>
+          </form>
+        </div>
+
+        <aside class="detected-card panel" aria-label="Song recognition result">
+          <p class="kicker"><span class="live-dot"></span> LOCAL SONG CATALOG</p>
+          <p id="detected-label" class="detected-label">READY TO IDENTIFY</p>
+          <div class="album-art"><span>♬</span><div class="art-orbit orbit-a"></div><div class="art-orbit orbit-b"></div></div>
+          <h3 id="recognized-title">Waiting for<br />lyrics</h3><p id="recognized-artist" class="artist">Your local catalog is ready.</p>
+          <div class="mini-wave" aria-hidden="true"></div>
+          <div id="recognition-candidates" class="recognition-candidates" aria-live="polite"></div>
+          <button id="use-song-button" class="use-song-button" type="button" hidden disabled>USE THIS SONG</button>
+          <p id="recognition-note" class="recognition-note">Paste user-supplied lyrics, then search the local demo catalog.</p>
+        </aside>
+      </section>
+
+      <section class="shell result-section" id="result">
+        <div class="section-label">THE AFTERMATH <span></span></div>
+        <div class="result-card panel">
+          <div class="result-top"><div><p class="kicker">YOUR MASTERPIECE</p><h2 id="parody-title">Ready when you are <span>— add lyrics above</span></h2><p id="parody-description" class="result-description">Your freshly generated parody will appear here.</p></div><div class="result-actions"><button id="copy-button" class="icon-button" type="button">⧉ <span>Copy</span></button><button id="regenerate-button" class="icon-button" type="button">↻ <span>Regenerate</span></button><button id="edit-button" class="icon-button" type="button">✎ <span>Edit</span></button></div></div>
+          <div class="lyrics-display" id="parody-lyrics" contenteditable="false" role="textbox" aria-label="Generated parody lyrics">Your parody lyrics will appear here.</div>
+          <div class="audio-demo" aria-live="polite"><p id="audio-status" class="audio-status">Generate a parody, then choose a voice to sing it.</p><button id="sing-button" class="sing-button" type="button" hidden>🎤 <span>SING MY PARODY</span></button><audio id="generated-audio" controls hidden></audio><a id="download-audio-button" class="download-audio-button" hidden download>↓ DOWNLOAD AUDIO</a></div>
+        </div>
+      </section>
+
+      <section class="shell score-section" id="about">
+        <div class="score-copy"><p class="kicker">SCIENTIFICALLY UNVERIFIED</p><h2>USELESSNESS<br /><span>SCORE</span></h2><p>Our proprietary nonsense-meter has reviewed this creation. The results are concerning.</p><div class="score-row"><span>Academic value</span><div><i style="width: 3%"></i></div><b>0%</b></div><div class="score-row"><span>Entertainment value</span><div><i style="width: 97%"></i></div><b>97%</b></div><p class="questionable">Probability of passing tomorrow: <strong>questionable</strong></p></div>
+        <div class="score-orb"><span>94<sup>%</sup></span><p>spectacularly<br />unnecessary</p><i class="ring ring-1"></i><i class="ring ring-2"></i><b class="orbit-text">✦&nbsp; certified silly &nbsp;✦</b></div>
+      </section>
+
+      <section class="shell how-section" id="how-it-works"><div class="section-label">THE FOOLPROOF PLAN <span></span></div><h2>Three steps to musical<br /><span>academic suffering.</span></h2><div class="steps"><article><span>01</span><h3>Paste lyrics</h3><p>Tell us what song you're about to ruin.</p></article><article><span>02</span><h3>Choose your chaos</h3><p>Pick a theme and decide how unhinged it should be.</p></article><article><span>03</span><h3>Make the parody</h3><p>AI transforms your lyrics into musical academic suffering.</p></article></div></section>
+    </main>
+    <footer class="shell"><a class="brand" href="#top"><span class="brand-mark">P</span><span class="parody-name">Parody</span><i> . mp3.</i></a><p>Built for absolutely no practical reason.</p><div><a href="#top">GitHub</a><a href="#about">About</a><a href="#top">Credits</a></div></footer>
+    <div class="toast" id="toast" role="status" aria-live="polite"></div>
+    <script src="script.js"></script>
+  </body>
+</html>

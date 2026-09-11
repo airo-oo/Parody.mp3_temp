@@ -1,0 +1,32 @@
+[
+  {
+    "id": "demo-midnight-library",
+    "title": "Midnight Library",
+    "artist": "Parody Maker Demo Ensemble",
+    "lyrics": "When the midnight library lights begin to glow\nI count the paper planets in a quiet row\nTurn another page and let the city sleep\nAll the little promises are ours to keep"
+  },
+  {
+    "id": "demo-copper-kettle",
+    "title": "Copper Kettle Morning",
+    "artist": "Parody Maker Demo Ensemble",
+    "lyrics": "Copper kettle calling on a rainy morning train\nSteam across the window writes a silver name\nCarry all the daylight in a worn out case\nFind me by the river at the old familiar place"
+  },
+  {
+    "id": "demo-paper-rockets",
+    "title": "Paper Rocket Parade",
+    "artist": "Parody Maker Demo Ensemble",
+    "lyrics": "Fold a paper rocket for the afternoon sky\nWrite a tiny map where the cloudy rooftops lie\nEvery little engine hums a hopeful tune\nWe will reach the kitchen moon before too soon"
+  },
+  {
+    "id": "barbie-girl",
+    "title": "Barbie Girl",
+    "artist": "Aqua",
+    "lyrics_file": "barbie_girl.txt"
+  },
+  {
+    "id": "baby",
+    "title": "Baby",
+    "artist": "Justin Bieber",
+    "lyrics_file": "baby.txt"
+  }
+]

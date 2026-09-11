@@ -1,0 +1,9 @@
+.env
+backend/.env
+.venv/
+backend/.venv/
+backend/.venv311/
+__pycache__/
+*.py[cod]
+backend/generated/
+backend/*.log

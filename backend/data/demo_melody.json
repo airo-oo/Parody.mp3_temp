@@ -1,0 +1,21 @@
+{
+  "tempo": 100,
+  "notes": [
+    {"pitch": 60, "start": 0.0, "duration": 0.25}, {"pitch": 62, "start": 0.25, "duration": 0.25},
+    {"pitch": 64, "start": 0.5, "duration": 0.25}, {"pitch": 67, "start": 0.75, "duration": 0.25},
+    {"pitch": 69, "start": 1.0, "duration": 0.25}, {"pitch": 67, "start": 1.25, "duration": 0.25},
+    {"pitch": 64, "start": 1.5, "duration": 0.25}, {"pitch": 62, "start": 1.75, "duration": 0.25},
+    {"pitch": 60, "start": 2.0, "duration": 0.25}, {"pitch": 64, "start": 2.25, "duration": 0.25},
+    {"pitch": 67, "start": 2.5, "duration": 0.25}, {"pitch": 72, "start": 2.75, "duration": 0.25},
+    {"pitch": 71, "start": 3.0, "duration": 0.25}, {"pitch": 67, "start": 3.25, "duration": 0.25},
+    {"pitch": 64, "start": 3.5, "duration": 0.25}, {"pitch": 62, "start": 3.75, "duration": 0.25},
+    {"pitch": 60, "start": 4.0, "duration": 0.25}, {"pitch": 62, "start": 4.25, "duration": 0.25},
+    {"pitch": 64, "start": 4.5, "duration": 0.25}, {"pitch": 67, "start": 4.75, "duration": 0.25},
+    {"pitch": 69, "start": 5.0, "duration": 0.25}, {"pitch": 72, "start": 5.25, "duration": 0.25},
+    {"pitch": 71, "start": 5.5, "duration": 0.25}, {"pitch": 67, "start": 5.75, "duration": 0.25},
+    {"pitch": 64, "start": 6.0, "duration": 0.25}, {"pitch": 62, "start": 6.25, "duration": 0.25},
+    {"pitch": 60, "start": 6.5, "duration": 0.25}, {"pitch": 64, "start": 6.75, "duration": 0.25},
+    {"pitch": 67, "start": 7.0, "duration": 0.25}, {"pitch": 69, "start": 7.25, "duration": 0.25},
+    {"pitch": 72, "start": 7.5, "duration": 0.25}, {"pitch": 69, "start": 7.75, "duration": 0.25}
+  ]
+}
