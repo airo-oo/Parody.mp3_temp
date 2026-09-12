@@ -1,5 +1,21 @@
 # Parody Maker
 
+## Deploy to Render
+
+`render.yaml` deploys the entire application as one Python web service: it serves
+the existing static frontend and the FastAPI API from the same public URL.
+
+1. In Render, create a Blueprint from this repository.
+2. Keep the configured free plan, then provide `OPENAI_API_KEY` only in Render's
+   encrypted environment-variable form. Do not commit it.
+3. Deploy. Render runs `pip install -r requirements.txt` from `backend/` and
+   starts `uvicorn main:app --host 0.0.0.0 --port $PORT`.
+
+The service health check is `/health`; the frontend is `/`; API documentation is
+`/docs`. `SINGING_ENGINE=demo` is set for deployment because the optional real
+DiffSinger engine needs an authorized local model and cannot run on Render's
+free web-service plan.
+
 ## Local lyric recognition
 
 The optional song-recognition step compares lyrics entered by the user with the project-owned local catalog in `backend/data/songs.json`. It never fetches lyrics or song data from the internet.

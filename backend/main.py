@@ -1,5 +1,7 @@
 """FastAPI entry point for Parody Maker's lyrics-only Phase 1 API."""
 
+from pathlib import Path
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from fastapi.staticfiles import StaticFiles
@@ -37,3 +39,9 @@ app.mount("/generated", StaticFiles(directory=GENERATED_DIRECTORY), name="genera
 def health_check() -> dict[str, str]:
     """Small endpoint useful for checking that the API is running."""
     return {"status": "ok"}
+
+
+# The repository's lightweight frontend lives one level above backend/. Mount it
+# last so API routes and generated audio keep their explicit URL prefixes.
+FRONTEND_DIRECTORY = Path(__file__).resolve().parent.parent
+app.mount("/", StaticFiles(directory=FRONTEND_DIRECTORY, html=True), name="frontend")

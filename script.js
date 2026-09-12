@@ -24,7 +24,10 @@ const recognizedArtist = document.querySelector("#recognized-artist");
 const recognitionCandidates = document.querySelector("#recognition-candidates");
 const recognitionNote = document.querySelector("#recognition-note");
 const useSongButton = document.querySelector("#use-song-button");
-const API_URL = window.PARODY_API_URL || "http://127.0.0.1:8012/api/parody";
+const isLocalFrontendPreview = ["localhost", "127.0.0.1"].includes(window.location.hostname)
+  && window.location.port === "5173";
+const API_URL = window.PARODY_API_URL
+  || (isLocalFrontendPreview ? "http://127.0.0.1:8012/api/parody" : `${window.location.origin}/api/parody`);
 const STATUS_URL = API_URL.replace(/\/parody$/, "/status");
 const RECOGNITION_URL = API_URL.replace(/\/parody$/, "/recognize");
 const AUDIO_URL = API_URL.replace(/\/api\/parody$/, "/api/audio/generate");
